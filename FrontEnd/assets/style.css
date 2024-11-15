@@ -1,0 +1,531 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Bouton reset */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Styles généraux */
+body {
+    max-width: 1140px;
+    margin: auto;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+}
+
+/* En-tête */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+header h1 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #B1663C;
+}
+
+header h1 > span {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    padding: 0 10px;
+    font-size: 1.2em;
+}
+
+nav li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav li:hover {
+    color: #B1663C;
+}
+
+/* Titres */
+h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1D6154;
+}
+
+/* Sections */
+section {
+    margin: 50px 0;
+}
+
+/* Section Introduction */
+#introduction {
+    display: flex;
+    align-items: center;
+}
+
+#introduction figure {
+    flex: 1;
+}
+
+#introduction img {
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+
+#introduction article {
+    flex: 1;
+}
+
+#introduction h2 {
+    margin-bottom: 1em;
+}
+
+#introduction p {
+    margin-bottom: 0.5em;
+}
+
+/* Section Portfolio */
+#portfolio h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.title-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 31px;
+    margin-bottom: 51px;
+}
+
+.edit-works {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+.edit-works button {
+    color: black;
+    font-size: 16px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+.edit-works i {
+    font-size: 15px;
+}
+
+.filtres {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.btn-filtre {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1D6154;
+    background-color: white;
+    text-align: center;
+    border-radius: 60px;
+    border: 2px solid #1D6154;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-filtre.active {
+    color: white;
+    background-color: #1D6154;
+}
+
+.gallery {
+    width: 100%;
+    display: grid;
+    margin-top: 42px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+/* Section Contact et Login */
+#contact,
+#login {
+    width: 50%;
+    margin: auto;
+}
+
+#contact > *,
+#login > * {
+    text-align: center;
+}
+
+#contact h2,
+#login h2 {
+    margin-bottom: 20px;
+}
+
+#contact form,
+#login form {
+    text-align: left;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact input,
+#login input {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact label,
+#login label {
+    margin: 2em 0 1em 0;
+}
+
+#contact textarea {
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+input[type="submit"] {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #164b42;
+}
+
+/* Pied de page */
+footer nav ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em;
+}
+
+/* Modales */
+.modalBackground,
+.modalBackground-upload,
+.modal-error {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modalBackground.active,
+.modalBackground-upload.active,
+.modal-error.active{
+    display: flex;
+}
+
+.modalContent,
+.modalContent-upload {
+    background-color: #fff;
+    padding: 20px;
+    width: 630px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.modalContent {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 50px);
+    margin: auto;
+    overflow: auto;
+    z-index: 2;
+}
+
+.modalTitle {
+    margin: 20px 0;
+    color: #000;
+    text-align: center;
+    font-size: 1.625rem;
+    font-weight: 400;
+}
+
+.close-button {
+    font-size: 35px;
+    cursor: pointer;
+    color: #333;
+    align-self: flex-end;
+    padding-bottom: 2px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.88rem;
+    padding: 2rem 0;
+    border-top: 1px solid #b3b3b3;
+    width: 466px;
+}
+
+#ajouter-photo,
+#uploadButton {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin: 2em auto;
+    width: 56%;
+    height: 36px;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#uploadButton {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#uploadButton.active {
+    background-color: #1D6154;
+    cursor: pointer;
+}
+
+.gallery-modal {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin: 20px 0;
+    width: 75%;
+}
+
+.gallery-modal figure {
+    width: 88px;
+    height: 135px;
+    position: relative;
+    margin: 5px;
+}
+
+.gallery-modal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trash-icon {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    background-color: black;
+    width: 1.0625rem;
+    height: 1.0625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+/* Formulaire d'upload */
+.image-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.image-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 185px;
+    border: 2px dashed #d3d3d3;
+    border-radius: 8px;
+    color: #a0a0a0;
+    text-align: center;
+    font-size: 14px;
+    background-color: #e8f1f6;
+}
+
+.image-upload-label i {
+    font-size: 101px;
+}
+
+.input-file {
+    margin-top: 8px;
+    color: #306685;
+    text-align: center;
+    font-size: 0.675rem;
+    font-weight: 500;
+    border-radius: 50px;
+    background: #cbd6dc;
+    width: 285px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jpg-info {
+    margin-top: 4px;
+    color: #444;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.625rem;
+    font-weight: 400;
+}
+
+#preview {
+    max-width: 129px;
+    max-height: 193px;
+    display: none;
+    margin: 10px 0;
+}
+
+#title,
+#categorySelect {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backclose-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.back-button {
+    cursor: pointer;
+    width: 15px;
+}
+
+.labeltitle {
+    color: black;
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.form-input {
+    background: #fff;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+/* Classe cachée */
+.hidden {
+    display: none;
+}
+
+.active{
+	color: white;
+}
