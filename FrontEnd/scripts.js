@@ -212,6 +212,7 @@ popupBackgroundUpload.addEventListener("click", (event) => {
   }
 });
 
+
 function resetUploadForm() {
   const preview = document.getElementById('preview');
   const imageInput = document.getElementById('image');
@@ -342,13 +343,15 @@ async function submitForm() {
       }, 1500);
   
     } else {
-      console.error('Erreur lors de l\'ajout du projet:', response.statusText);
-      alert('Une erreur est survenue lors de l\'ajout du projet.');
+      notification.style.color = "red";
+      notification.textContent = 'Erreur lors de l\'ajout du projet';
+      notification.classList.remove("hidden");
     }
   } 
   catch (error) {
-    console.error('Erreur lors de l\'ajout du projet:', error);
-    alert('Une erreur est survenue lors de l\'ajout du projet.');
+    notification.style.color = "red";
+    notification.textContent = 'Erreur lors de l\'ajout du projet';
+    notification.classList.remove("hidden");
   }
 }
 
