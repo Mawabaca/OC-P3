@@ -34,6 +34,7 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+
 	<section id="portfolio">
 		<div class="title-project hidden ">
 			<h2>Mes Projets</h2>
@@ -47,6 +48,7 @@
 			<!-- Ici ça genere -->
 		</div>
 	</section>
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
@@ -70,7 +72,6 @@
 		</ul>
 	</nav>
 </footer>
-<dir></dir>
 
 <div class="modalBackground">
     <div class="modalContent">
@@ -79,6 +80,7 @@
         <div class="gallery-modal">
 
         </div>
+		<div class="notification hidden">Le projet a été ajouté avec succès.</div>
 		<div class="button-container">
        		 <button id="ajouter-photo">Ajouter une photo</button>
 		</div>
@@ -88,17 +90,17 @@
 
 <div class="modalBackground-upload">
     <div class="modalContent-upload">
+
         <div class="backclose-container">
             <img class="back-button" src="assets/icons/arrow-left.svg" alt="Précédent">
             <span class="close-button">&times;</span>
         </div>
 
         <h2 class="modalTitle">Ajout Photo</h2>
-        
         <form id="uploadForm" enctype="multipart/form-data">
             <div class="image-upload-container">
                 <label class="image-upload-label" for="image">
-					<img id="preview" src="" alt="Aperçu de l'image" style="display: none; width: 100px; height: 100px; object-fit: cover;" />
+					<img id="preview" src="" alt="Aperçu de l'image"/>
 					<div id="uploadInstructions">
 						<i class="fas fa-image"></i> 
 						<p class="input-file">+ Glissez-Déposez ou Cliquez pour Sélectionner</p>
@@ -119,7 +121,9 @@
             <div class="button-container">
                 <input type="submit" id="uploadButton" value="Valider" disabled />
             </div>
+
         </form>
+
     </div>
 </div>
 

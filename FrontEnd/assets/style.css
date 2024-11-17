@@ -327,14 +327,6 @@ footer nav ul {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-.modalContent {
-    max-width: calc(100vw - 20px);
-    max-height: calc(100vh - 50px);
-    margin: auto;
-    overflow: auto;
-    z-index: 2;
-}
-
 .modalTitle {
     margin: 20px 0;
     color: #000;
@@ -342,6 +334,16 @@ footer nav ul {
     font-size: 1.625rem;
     font-weight: 400;
 }
+.modal-error-content{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+}
+
 
 .close-button {
     font-size: 35px;
@@ -354,7 +356,6 @@ footer nav ul {
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 2.88rem;
     padding: 2rem 0;
     border-top: 1px solid #b3b3b3;
     width: 466px;
@@ -419,6 +420,10 @@ footer nav ul {
     border-radius: 3px;
     font-size: 10px;
     cursor: pointer;
+}
+
+.notification{
+    color: green;
 }
 
 /* Formulaire d'upload */

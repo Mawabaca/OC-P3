@@ -80,11 +80,11 @@ try {
 
 function toggleAdminElements() {
   const token = sessionStorage.getItem("token");
-  const adminElements = document.querySelectorAll(".hidden");
+  const adminElements = document.querySelectorAll("#portfolio .hidden");
 
   if (token) {
     adminElements.forEach(element => {
-      element.style.display = "flex";
+      element.classList.remove("hidden");
     });
   } else {
     adminElements.forEach(element => {
@@ -194,16 +194,23 @@ function addCategories(categories) {
 }
 function afficherPopupUpload() {
   cacherPopup(); 
-  const uploadModal = document.querySelector(".modalBackground-upload");
+  let uploadModal = document.querySelector(".modalBackground-upload");
   uploadModal.classList.add("active");
   addCategories(categories);
 }
 
 function cacherPopupUpload() {
-  const uploadModal = document.querySelector(".modalBackground-upload");
+  let uploadModal = document.querySelector(".modalBackground-upload");
   uploadModal.classList.remove("active");
   resetUploadForm();
 }
+
+let popupBackgroundUpload = document.querySelector(".modalBackground-upload");
+popupBackgroundUpload.addEventListener("click", (event) => {
+  if (event.target === popupBackgroundUpload) {
+    cacherPopupUpload();
+  }
+});
 
 function resetUploadForm() {
   const preview = document.getElementById('preview');
@@ -259,14 +266,14 @@ function addListeners() {
         preview.src = URL.createObjectURL(this.files[0]);
         preview.onload = () => {
             preview.style.display = 'block';
-            uploadInstructions.style.display = 'none'; // Masquer les instructions de téléchargement
+            uploadInstructions.style.display = 'none'; 
             URL.revokeObjectURL(preview.src);
         };
         imageOk = true; 
     } else {
         imageOk = false; 
         preview.style.display = 'none';
-        uploadInstructions.style.display = 'flex'; // Afficher les instructions si aucune image
+        uploadInstructions.style.display = 'flex';
     }
     CheckEntries();
 });
@@ -324,7 +331,16 @@ async function submitForm() {
       genererateGallery(myworks);
       genererateGalleryModal(myworks);
       cacherPopupUpload();
-      alert('Le projet a été ajouté avec succès.');
+      afficherPopup();
+
+      const notification = document.querySelector(".notification");
+      notification.textContent = 'Le projet a été ajouté avec succès.';
+      notification.classList.remove("hidden");
+
+      setTimeout(() => {
+        notification.classList.add("hidden");
+      }, 1500);
+  
     } else {
       console.error('Erreur lors de l\'ajout du projet:', response.statusText);
       alert('Une erreur est survenue lors de l\'ajout du projet.');
