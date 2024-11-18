@@ -257,12 +257,14 @@ function addListeners() {
 
   image.addEventListener("change", function() {
     const uploadInstructions = document.getElementById("uploadInstructions");
+    const notificationVolumious = document.querySelector(".notification-error");
     if (this.files && this.files[0]) {
         if (this.files[0].size > maxSize) {
-            alert("Le fichier est trop volumineux. La taille maximale autorisée est de 4 Mo.");
-            resetUploadForm();
-            imageOk = false;
-            return;
+          notificationVolumious.textContent = "Le fichier est trop volumineux. La taille maximale autorisée est de 4 Mo !";
+          notificationVolumious.classList.remove("hidden"); 
+          resetUploadForm();
+          imageOk = false;
+          return;
         }
         preview.src = URL.createObjectURL(this.files[0]);
         preview.onload = () => {
@@ -270,6 +272,7 @@ function addListeners() {
             uploadInstructions.style.display = 'none'; 
             URL.revokeObjectURL(preview.src);
         };
+        notificationVolumious.classList.add("hidden");
         imageOk = true; 
     } else {
         imageOk = false; 

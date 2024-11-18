@@ -40,28 +40,40 @@ document.addEventListener("submit", (event) => {
     const loginLink = document.querySelector("#login-logout");
     const token = sessionStorage.getItem("token");
 
+
     if (token) {
-      loginLink.textContent = "logout";
-      loginLink.href = "index.html";
+        loginLink.textContent = "logout";
+        loginLink.href = "index.html";
 
-      loginLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        sessionStorage.removeItem("token"); 
-        window.location.replace("login.html");
-      });   
-      
+        loginLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            sessionStorage.removeItem("token");
+            window.location.replace("login.html");
+        });
     } else {
-      loginLink.textContent = "login";
+        loginLink.textContent = "login";
     }
-  });
 
-  function openErrorModal() {
+    const errorModal = document.getElementById("errorModal");
+    const closeButton = errorModal.querySelector(".close-button");
+    const okButtonclose = errorModal.querySelector(".close-button-ok"); 
+
+
+    okButtonclose.addEventListener("click", closeErrorModal);
+    closeButton.addEventListener("click", closeErrorModal);
+
+    errorModal.addEventListener("click", (event) => {
+        if (event.target === errorModal) {
+            closeErrorModal();
+        }
+    });
+});
+
+function openErrorModal() {
     const errorModal = document.getElementById("errorModal");
     errorModal.style.display = "flex";
 }
-
 function closeErrorModal() {
     const errorModal = document.getElementById("errorModal");
     errorModal.style.display = "none";
 }
-
