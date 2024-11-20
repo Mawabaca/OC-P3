@@ -81,18 +81,33 @@ try {
 function toggleAdminElements() {
   const token = sessionStorage.getItem("token");
   const adminElements = document.querySelectorAll("#portfolio .hidden");
+  const loginLink = document.querySelector("#login-logout");
 
   if (token) {
     adminElements.forEach(element => {
       element.classList.remove("hidden");
     });
+    loginLink.textContent = "logout";
+    loginLink.href = "#";
+
+    loginLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem("token");
+      window.location.replace("login.html");
+    });
   } else {
     adminElements.forEach(element => {
       element.style.display = "none";
     });
+    loginLink.textContent = "login";
+    loginLink.href = "login.html";
   }
 }
 
+// Appeler la fonction après chargement du DOM
+document.addEventListener("DOMContentLoaded", () => {
+  toggleAdminElements();
+});
 toggleAdminElements();
 
 // MODAL //
@@ -387,4 +402,26 @@ document.querySelector(".modalBackground-upload .close-button").addEventListener
 document.querySelector(".back-button").addEventListener("click", () => {
   cacherPopupUpload(); 
   afficherPopup(); 
+});
+
+
+function manageLoginLogout() {
+  const loginLink = document.querySelector("#login-logout");
+  const token = sessionStorage.getItem("token");
+  if (token) {
+    loginLink.textContent = "logout";
+    loginLink.href = "index.html";
+
+    loginLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem("token");
+      window.location.replace("login.html");
+    });
+  } else {
+    loginLink.textContent = "login";
+    loginLink.href = "login.html";
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  manageLoginLogout();
 });
