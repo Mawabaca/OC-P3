@@ -283,26 +283,36 @@ function addListeners() {
 });
 
 
-  title.addEventListener("input", function(){
+  title.addEventListener("change", function(){
+    const notificationVolumious = document.querySelector(".notification-error");
     if(this.value.length > 50 ){
       titleOk = false;
+      notificationVolumious.classList.remove("hidden"); 
+      notificationVolumious.textContent = "Le titre doit contenir au maximum 50 caractères.";
       CheckEntries();
       return;
     }
     if(this.value.length < 3){
       titleOk = false;
+      notificationVolumious.classList.remove("hidden"); 
+      notificationVolumious.textContent = "Le titre doit contenir au moins 3 caractères.";
       CheckEntries();
       return;
     }
     titleOk = true;
+    notificationVolumious.classList.add("hidden");
     CheckEntries();
   });
   
   categorySelect.addEventListener("change", function(e) {
+    const notificationVolumious = document.querySelector(".notification-error");
     if (e.target.value === "" ) {
       categoryOk = false;
+      notificationVolumious.classList.remove("hidden");
+      notificationVolumious.textContent = "Sélectionnez une catégorie.";
     } else {
       categoryOk = true;
+      notificationVolumious.classList.add("hidden");
     }
     CheckEntries();
   });
