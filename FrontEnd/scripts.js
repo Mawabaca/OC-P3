@@ -128,7 +128,8 @@ function genererateGalleryModal(works) {
     trashIcon.classList.add("fa-regular", "fa-trash-can", "trash-icon");
 
     trashIcon.addEventListener("click", (event) => {
-      const figure = event.target.closest("figure");
+      event.preventDefault();
+      const figure = event.currentTarget.closest("figure");
       deleteWork(figure);
     });
 
